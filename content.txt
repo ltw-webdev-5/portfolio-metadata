@@ -1,0 +1,12 @@
+Dinos ’R’ Us website design · Awesome Person’s Portfolio
+
+Dinos ’R’ Us
+A shop-at-home website dedicated to the many amazing dinosaur products.
+The goal of the project was create a pattern library for a large-scale website and show pattern examples on a few sample pages.
+Won the RGD Student Award 2015
+View website
+Web, Responsive, CSS, Mobile, Dinosaurs
+
+© Thomas J Bradley
+hey@thomasjbradley.ca
+Ottawa, Ontario, Canada
