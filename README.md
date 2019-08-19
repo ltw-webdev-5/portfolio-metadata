@@ -1,6 +1,6 @@
-# Portfolio MicroData lesson starter
+# Portfolio metadata lesson starter
 
-**Look at writing the code necessary for describing portfolio piece using MicroData and Schema.org.**
+**Look at writing the code necessary for describing portfolio piece using metadata and Schema.org.**
 
 - Approx. completion time: 1 hour
 - Deliverables: HTML
@@ -8,7 +8,7 @@
 
 This is the starter code for a step-by-step lesson. Each step is described in detail here:
 
-### [**Follow the “Portfolio MicroData” step-by-step lesson ➔**](https://learn-the-web.algonquindesign.ca/courses/web-dev-5/portfolio-micordata/)
+### [**Follow the “Portfolio metadata” step-by-step lesson ➔**](https://learn-the-web.algonquindesign.ca/courses/web-dev-5/portfolio-metadata/)
 
 ---
 
