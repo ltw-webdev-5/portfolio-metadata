@@ -1,0 +1,79 @@
+repo: 'portfolio-metadata'
+canvasCourse: 'web-dev-5'
+
+inherit:
+  - naming-restrict-live
+  - git-2
+  - html
+
+html:
+  - path: 'index.html'
+    outline: false
+    has:
+      - 'figure > img'
+      - 'figure > figcaption > h2 + p + p + p + a + aside'
+      - 'figure + footer'
+      - 'footer > p + a + address'
+    search:
+      - 'Dinos ’R’ Us website design · Awesome Person’s Portfolio'
+      - 'Dinos ’R’ Us'
+      - 'A shop-at-home website dedicated to the many amazing dinosaur products.'
+      - 'The goal of the project was create a pattern library for a large-scale website and show pattern examples on a few sample pages.'
+      - 'Won the RGD Student Award 2015'
+      - 'View website'
+      - 'Web, Responsive, CSS, Mobile, Dinosaurs'
+      - '© Thomas J Bradley'
+      - 'hey@thomasjbradley.ca'
+      - 'Ottawa, Ontario'
+      - 'Canada'
+
+functionality:
+  - path: 'index.html'
+    tests:
+      - |
+        const schemaTagWork = $('script[type="application/ld+json"]');
+        const schemaTagAuthor = $('script + script[type="application/ld+json"]');
+        let schemaWork;
+        let schemaAuthor;
+
+        try {
+          schemaWork = JSON.parse(schemaTagWork.innerHTML);
+        } catch (e) {
+          if (e.message) {
+            fail('The JSON-LD data is invalid — ' + e.message);
+          } else {
+            fail('The JSON-LD data is invalid');
+          }
+        }
+
+        try {
+          schemaAuthor = JSON.parse(schemaTagAuthor.innerHTML);
+        } catch (e) {
+          if (e.message) {
+            fail('The JSON-LD data is invalid — ' + e.message);
+          } else {
+            fail('The JSON-LD data is invalid');
+          }
+        }
+
+        if (!schemaWork.hasOwnProperty('@context')) fail('The `@context` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('@type')) fail('The `@type` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('name')) fail('The `name` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('author')) fail('The `author` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('description')) fail('The `description` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('image')) fail('The `image` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('award')) fail('The `award` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('url')) fail('The `url` entry is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.hasOwnProperty('keywords')) fail('The `keywords` entry is missing in the “WebSite” JSON-LD block');
+
+        if (!schemaWork.author.hasOwnProperty('@type')) fail('The `@type` property within `author` property is missing in the “WebSite” JSON-LD block');
+        if (!schemaWork.author.hasOwnProperty('@id')) fail('The `@id` property within `author` property is missing in the “WebSite” JSON-LD block');
+
+        if (!schemaAuthor.hasOwnProperty('@context')) fail('The `@context` entry is missing in the “Author” JSON-LD block');
+        if (!schemaAuthor.hasOwnProperty('@type')) fail('The `@type` entry is missing in the “Author” JSON-LD block');
+        if (!schemaAuthor.hasOwnProperty('@id')) fail('The `@id` entry is missing in the “Author” JSON-LD block');
+        if (!schemaAuthor.hasOwnProperty('name')) fail('The `name` entry is missing in the “Author” JSON-LD block');
+        if (!schemaAuthor.hasOwnProperty('email')) fail('The `email` entry is missing in the “Author” JSON-LD block');
+        if (!schemaAuthor.hasOwnProperty('url')) fail('The `url` entry is missing in the “Author” JSON-LD block');
+
+        pass();
